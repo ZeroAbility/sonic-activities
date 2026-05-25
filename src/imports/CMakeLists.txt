@@ -4,7 +4,8 @@ project (plasmaactivities-imports)
 
 find_package (Qt6 REQUIRED NO_MODULE COMPONENTS Gui Qml Quick Sql)
 find_package (KF6Config     ${KF6_MIN_VERSION} CONFIG REQUIRED)
-find_package (KF6CoreAddons ${KF6_MIN_VERSION} CONFIG REQUIRED)
+#find_package (KF6CoreAddons ${KF6_MIN_VERSION} CONFIG REQUIRED)
+find_package(SonicFrameworksCoreAddons ${KF6_MIN_VERSION} CONFIG REQUIRED)
 
 ecm_add_qml_module(plasmaactivitiesextensionplugin URI "org.kde.activities" VERSION 0.1 GENERATE_PLUGIN_SOURCE DEPENDENCIES QtCore)
 
@@ -17,6 +18,12 @@ target_sources(plasmaactivitiesextensionplugin PRIVATE
    ${PLASMA_ACTIVITIES_CURRENT_ROOT_SOURCE_DIR}/src/utils/dbusfuture_p.cpp
 )
 
+target_include_directories(plasmaactivitiesextensionplugin
+                              PRIVATE
+                                 ${KDE_INSTALL_INCLUDEDIR_KF}/KCoreAddons
+                                 ${KDE_INSTALL_INCLUDEDIR_KF}/KWindowSystem
+)
+
 target_link_libraries(
    plasmaactivitiesextensionplugin PRIVATE
    Qt6::Core
@@ -27,7 +34,8 @@ target_link_libraries(
    Qt6::Sql
    Plasma::Activities
    KF6::ConfigCore
-   KF6::CoreAddons
+   #KF6::CoreAddons
+   KF6CoreAddons
 )
 
 ecm_finalize_qml_module(plasmaactivitiesextensionplugin DESTINATION ${KDE_INSTALL_QMLDIR})

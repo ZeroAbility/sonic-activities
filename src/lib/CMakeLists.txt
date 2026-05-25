@@ -162,7 +162,7 @@ endif()
 
 
 if (NOT WIN32)
-    ecm_generate_pkgconfig_file(BASE_NAME PlasmaActivities
+   ecm_generate_pkgconfig_file(BASE_NAME SonicDEActivities
       LIB_NAME PlasmaActivities
       INCLUDE_INSTALL_DIR ${KDE_INSTALL_INCLUDEDIR}/PlasmaActivities
       DEPS Qt6Core

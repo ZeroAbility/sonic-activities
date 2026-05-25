@@ -6,8 +6,8 @@ portingAid: false
 deprecated: false
 release: true
 libraries:
-    - cmake: Plasma::Activities
-cmakename: PlasmaActivities
+    - cmake: SonicDEActivities
+cmakename: SonicDEActivities
 
 public_lib: true
 group: Plasma

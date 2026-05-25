@@ -46,7 +46,7 @@ ecm_setup_version (
    PROJECT
    VARIABLE_PREFIX PLASMA_ACTIVITIES
    VERSION_HEADER "${plasma_activities_version_header}"
-   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/PlasmaActivitiesConfigVersion.cmake"
+   PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/SonicDEActivitiesConfigVersion.cmake"
    SOVERSION 7
    )
 
@@ -61,34 +61,34 @@ if (BUILD_TESTING)
     add_subdirectory (tests)
 endif()
 
-set (CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/PlasmaActivities")
+set (CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/SonicDEActivities")
 
 if (BUILD_QCH)
     ecm_install_qch_export(
         TARGETS PlasmaActivities_QCH
-        FILE PlasmaActivitiesLibraryQchTargets.cmake
+        FILE SonicDEActivitiesLibraryQchTargets.cmake
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         COMPONENT Devel
     )
-    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/PlasmaActivitiesLibraryQchTargets.cmake\")")
+    set(PACKAGE_INCLUDE_QCHTARGETS "include(\"\${CMAKE_CURRENT_LIST_DIR}/SonicDEActivitiesLibraryQchTargets.cmake\")")
 endif()
 
 install (
    EXPORT PlasmaActivitiesLibraryTargets
    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-   FILE PlasmaActivitiesLibraryTargets.cmake
+   FILE SonicDEActivitiesLibraryTargets.cmake
    NAMESPACE Plasma::
    )
 
 configure_package_config_file (
-   "${CMAKE_CURRENT_SOURCE_DIR}/PlasmaActivitiesConfig.cmake.in"
-   "${CMAKE_CURRENT_BINARY_DIR}/PlasmaActivitiesConfig.cmake"
+   "${CMAKE_CURRENT_SOURCE_DIR}/SonicDEActivitiesConfig.cmake.in"
+   "${CMAKE_CURRENT_BINARY_DIR}/SonicDEActivitiesConfig.cmake"
    INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
    )
 
 install (
-   FILES "${CMAKE_CURRENT_BINARY_DIR}/PlasmaActivitiesConfig.cmake"
-         "${CMAKE_CURRENT_BINARY_DIR}/PlasmaActivitiesConfigVersion.cmake"
+   FILES "${CMAKE_CURRENT_BINARY_DIR}/SonicDEActivitiesConfig.cmake"
+   "${CMAKE_CURRENT_BINARY_DIR}/SonicDEActivitiesConfigVersion.cmake"
    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
    COMPONENT Devel
    )

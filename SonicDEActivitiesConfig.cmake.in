@@ -3,5 +3,5 @@
 include(CMakeFindDependencyMacro)
 find_dependency(Qt6Core @QT_MIN_VERSION@)
 
-include("${CMAKE_CURRENT_LIST_DIR}/PlasmaActivitiesLibraryTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/SonicDEActivitiesLibraryTargets.cmake")
 @PACKAGE_INCLUDE_QCHTARGETS@
